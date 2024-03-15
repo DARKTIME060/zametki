@@ -1,0 +1,387 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+input,
+button {
+    border: none;
+    outline: none;
+}
+
+.container {
+    max-width: 1152px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 12px;
+}
+
+.nav {
+
+    &-main,
+    &-search {
+        padding: 14px 16px;
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        background: rgb(243, 237, 247);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__lang {
+        position: relative;
+        width: 55px;
+        height: 25px;
+        overflow: hidden;
+    }
+
+    &__lang-btn {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        transition: 0.5s;
+
+        & span {
+            font-weight: 700;
+        }
+
+        &.active {
+            opacity: 0;
+            top: -100%;
+        }
+    }
+
+    &__title {
+        color: rgb(28, 27, 31);
+        font-family: 'Roboto';
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 28px;
+        letter-spacing: 0%;
+        text-align: center;
+    }
+
+    &__search-btn,
+    &__back,
+    &__cancel {
+        font-size: 27px;
+        padding: 5px;
+        color: rgb(73, 69, 79);
+    }
+
+    &-search {
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+
+        &.active {
+            top: 0;
+            transition: 0.7s;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        font-family: 'Roboto';
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        background: transparent;
+    }
+}
+
+.notes {
+
+
+    &__top {
+        margin: 30px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__title {
+        color: rgb(50, 50, 50);
+        font-family: 'Roboto';
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 28px;
+        text-align: left;
+    }
+
+    &__btn {
+        padding: 16px;
+        border-radius: 16px;
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3), 0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+        background: rgba(103, 80, 164, 0.11), rgb(255, 251, 254);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+
+        & svg {
+            font-size: 20px;
+            color: rgb(103, 80, 164);
+        }
+
+        & span {
+            color: rgb(103, 80, 164);
+            font-family: 'Roboto';
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            letter-spacing: 0.1px;
+            text-align: center;
+        }
+    }
+
+    &__data {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+
+        &.active {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+}
+
+.note {
+    border-radius: 16px;
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+    background: rgba(103, 80, 164, 0.05), rgb(255, 251, 254);
+    padding: 17px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    &__title {
+        color: rgb(28, 27, 31);
+        font-family: "Roboto";
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0.1px;
+        text-align: left;
+    }
+
+    &__date {
+        color: rgb(202, 196, 208);
+        font-family: 'Roboto';
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.25px;
+    }
+
+    &__text {
+        color: rgb(73, 69, 79);
+        font-family: 'Roboto';
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.25px;
+        text-align: left;
+    }
+
+    &__button {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: auto;
+    }
+
+    &__edit-btn,
+    &__del-btn {
+        padding: 12px;
+        border-radius: 5px;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: .3s;
+
+        & svg {
+            font-size: 18px;
+        }
+
+        & span {
+            font-family: 'Roboto';
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            letter-spacing: 0.1px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+
+    &__edit-btn {
+        & svg {
+            color: rgb(103, 80, 164);
+        }
+
+        & span {
+            color: rgb(103, 80, 164);
+        }
+
+        &:hover {
+            background: rgb(230, 221, 255);
+        }
+    }
+
+    &__del-btn {
+        & svg {
+            color: rgb(207, 27, 27);
+        }
+
+        & span {
+            color: rgb(207, 27, 27);
+        }
+
+        &:hover {
+            background: rgb(255, 225, 225);
+        }
+    }
+}
+
+.add {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    z-index: -1;
+    transition: .3s;
+
+    &.active{
+        opacity: 1;
+        z-index: 1;
+    }
+
+
+    &__card {
+        border-radius: 16px;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+        background:rgb(255, 251, 254);
+        padding: 24px;
+        width: 264px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        color: rgb(28, 27, 31);
+        font-family: 'Roboto';
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32px;
+        letter-spacing: 0%;
+        text-align: left;
+    }
+
+    &__label {
+        color: rgb(103, 80, 164);
+        font-family: 'Roboto';
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0.4px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        margin: 16px 0;
+        border-radius: 4px 4px 0px 0px;
+        background: rgb(231, 224, 236);
+        padding: 9px 16px;
+    }
+
+    &__input {
+        background: transparent;
+        color: rgb(73, 69, 79);
+        font-family: 'Roboto';
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0.5px;
+        text-align: left;
+    }
+
+    &__btn{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    &__add-btn{
+        color: rgb(103, 80, 164);
+        font-family: 'Roboto';
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 0.1px;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 10px 12px;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    &__cancel-btn{
+        color: rgb(207, 27, 27);
+        font-family: 'Roboto';
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 0.1px;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 10px 12px;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    &__open {
+        position: fixed;
+        right: 3%;
+        bottom: 3%;
+        border-radius: 16px;
+        background: rgba(103, 80, 164, 0.11), rgb(255, 251, 254);
+        padding: 16px;
+        cursor: pointer;
+
+        & svg {
+            font-size: 20px;
+            color: rgb(103, 80, 164);
+        }
+    }
+}
